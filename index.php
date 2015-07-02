@@ -1,3 +1,11 @@
+<html>
+
+<body bgcolor="#d8ebff">
+<p><center><img src="1.png" alt="mikky"></center></p>
+<font color="#ef6900"><p><center><h1>PROJECT</h1></center></p></font>
+
+
+
 <?php
 $bb=12.3;
 $p=12.2;
@@ -11,3 +19,5 @@ else
 echo "Hello world!",$a;
 
 ?>
+<p><center><img src="2.gif" alt="minyons"></center></p>
+</html>
