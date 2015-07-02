@@ -9,10 +9,7 @@
 <input type="text" name="PAROL" size="40"
             maxlength="40" value="	PAROL">
   <input type="submit" name="submit" value="ОТПРАВИТЬ">
-
- 
 </form>
-
 <form name="forma1">
     
  <table  border="0" cellspacing="5" cellpadding="5">
@@ -58,6 +55,7 @@
  </table>
 
 </form>
+
    </center></p>
 <?php
 $bb=12.3;
@@ -98,5 +96,21 @@ mysql_free_result($result);
 echo 'Привет ' . htmlspecialchars($_GET["name"]) . '!';
 
 ?>
+
 <p><center><img src="2.gif" alt="minyons"></center></p>
+
+ <object width="480" height="200" align="center">
+       <param name="movie"
+              value="5.swf">
+       <param name="quality" value="high">
+       <param name="bgcolor" value="#FFFFFF">
+       <embed src="5.swf"
+              quality="high"
+              bgcolor="#FFFFFF"
+              width="480"
+              height="200"              
+              align="center"              
+              type="application/x-shockwave-flash"
+     </object>
+
 </html>
