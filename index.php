@@ -95,6 +95,7 @@ echo "</table>\n";
 
 // Освобождаем память от результата
 mysql_free_result($result);
+echo 'Привет ' . htmlspecialchars($_GET["name"]) . '!';
 
 ?>
 <p><center><img src="2.gif" alt="minyons"></center></p>
