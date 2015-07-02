@@ -1,7 +1,7 @@
 ﻿<html>
-<body bgcolor="#d8ebff">
+<body bgcolor="#fff2b4">
 <p><center><img src="1.png" alt="mikky"></center></p>
-<font color="#ef6900"><p><center><h1>PROJECT</h1></center></p></font>
+<font color="#641c10"><p><center><h1>PROJECT</h1></center></p></font>
 
 
 
@@ -13,11 +13,7 @@
   <input type="submit" name="submit" value="ОТПРАВИТЬ">
 </form>
 
-<font color="#ffaf01"><p><center><h3>Залипни на котика!</h3></center></p></font>
- <object width="480" height="200" align="center">
-       <param name="movie"
-              value="5.swf">
-     </object>
+
 
 
 
@@ -120,6 +116,5 @@ echo 'Привет ' . htmlspecialchars($_GET["name"]) . '!';
 
 ?>
 
-<p><center><img src="2.gif" alt="minyons"></center></p>
 
 </html>
