@@ -2,12 +2,11 @@
 <body bgcolor="#d8ebff">
 <p><center><img src="1.png" alt="mikky"></center></p>
 <font color="#ef6900"><p><center><h1>PROJECT</h1></center></p></font>
-
  <p><center><form name="forma1">
 
-     <input type="text" name="LOGIN" size="20"
+     <input type="text" name="LOGIN" size="40"
             maxlength="40" value="	LOGIN">
-<input type="text" name="PAROL" size="20"
+<input type="text" name="PAROL" size="40"
             maxlength="40" value="	PAROL">
   <input type="submit" name="submit" value="ОТПРАВИТЬ">
 
@@ -22,35 +21,33 @@
 
    <tr>
     <td align="right" valign="top">Логин</td>
-    <td><input type="text" name="name" size="25"></td>
+    <td><input type="text" name="name" size="40"></td>
    </tr>
 
    <tr>
     <td align="right" valign="top">e-mail</td>
-    <td><input type="text" name="e-mail" size="25"></td>
+    <td><input type="text" name="e-mail" size="40"></td>
    </tr>
 
    <tr>
     <td align="right" valign="top" >Пароль</td>
     <td>
-     <input type="password" name="password" size="25">
+     <input type="password" name="password" size="40">
     </td>
    </tr>
 
    <tr>
     <td align="right" valign="top" >Повтор пароля</td>
     <td>
-     <input type="password" name="password2" size="25">
+     <input type="password" name="password2" size="40">
     </td>
    </tr>
    <tr>
     <td align="right" valign="top">О себе</td>
     <td>
-     <textarea cols="30" rows="3" wrap="physical">
-     </textarea>
+     <input type="info" name="info" size="40">
     </td>
    </tr>
-
    <tr>
     <td align="right" colspan="2">
      <input type="submit" name="submit" value="Отправить">
