@@ -2,8 +2,10 @@
 <body bgcolor="#d8ebff">
 <p><center><img src="1.png" alt="mikky"></center></p>
 <font color="#ef6900"><p><center><h1>PROJECT</h1></center></p></font>
- <p><center><form name="forma1">
 
+
+
+ <p><center><form name="forma1">
      <input type="text" name="LOGIN" size="40"
             maxlength="40" value="	LOGIN">
 <input type="text" name="PAROL" size="40"
@@ -11,6 +13,7 @@
   <input type="submit" name="submit" value="ОТПРАВИТЬ">
 </form>
 
+<font color="#ffaf01"><p><center><h3>Залипни на котика!</h3></center></p></font>
  <object width="480" height="200" align="center">
        <param name="movie"
               value="5.swf">
@@ -22,7 +25,7 @@
     
  <table  border="0" cellspacing="5" cellpadding="5">
 
-   <caption>Регистрация</caption>
+  <font color="#ef6900"><h2>Регистрация</h2></font>
 
    <tr>
     <td align="right" valign="top">Логин</td>
