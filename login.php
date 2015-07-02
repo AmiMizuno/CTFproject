@@ -10,17 +10,13 @@
     
  <table  border="0" cellspacing="5" cellpadding="5">
 
-  <font color="#ef6900"><h2>Регистрация</h2></font>
+  <font color="#ef6900"><h2>Вход</h2></font>
 
    <tr>
     <td align="right" valign="top">Логин</td>
     <td><input type="text" name="name" size="40"></td>
    </tr>
 
-   <tr>
-    <td align="right" valign="top">e-mail</td>
-    <td><input type="text" name="e-mail" size="40"></td>
-   </tr>
 
    <tr>
     <td align="right" valign="top" >Пароль</td>
@@ -29,18 +25,6 @@
     </td>
    </tr>
 
-   <tr>
-    <td align="right" valign="top" >Повтор пароля</td>
-    <td>
-     <input type="password" name="password2" size="40">
-    </td>
-   </tr>
-   <tr>
-    <td align="right" valign="top">О себе</td>
-    <td>
-     <input type="info" name="info" size="40">
-    </td>
-   </tr>
    <tr>
     <td align="right" colspan="2">
      <input type="submit" name="submit" value="Отправить">
