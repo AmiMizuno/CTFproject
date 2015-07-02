@@ -79,12 +79,12 @@ if($i==0)
 	mysql_free_result($result);
 	$query = "INSERT INTO users(login, password,email,info) VALUES ('$name','$passwd','$mail','$info')";
 	$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
-	echo "Пользователь ", $name," успешно зарегистрирован.";
+	echo "Пользователь ", $name," успешно зарегистрирован.",'<br><img src="22.png" alt="uhu">';
 }
 else
 	{
 		mysql_free_result($result);
-		echo "Логин занят",'<br><img src="23.png" alt="mikky">';
+		echo "Логин занят",'<br><img src="23.png" alt="doh">';
 	
 	}
 }
