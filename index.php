@@ -66,23 +66,35 @@
 
    </center></p>
 <?php
-$bb=12.3;
-$p=12.2;
-$b=false;
-$n=4;
 
-if($b)
-	$a=$n+$p-$bb;
-else
-	$a=$n-$p+$bb;
-echo "Hello world!",$a;
 $link = mysql_connect('127.0.0.1', 'root', '')
     or die('Не удалось соединиться: ' . mysql_error());
-echo 'Соединение успешно установлено';
 mysql_select_db('ctfbd') or die('Не удалось выбрать базу данных');
-$query = 'INSERT INTO users(login, password,email,info) VALUES ($_GET["name"], $_GET["password2"],$_GET["e-mail"],$_GET["info"])';
+$name=$_GET["name"];
+$mail=$_GET["e-mail"];
+$info=$_GET["info"];
+$passwd=$_GET["password2"];
+$query = "SELECT * FROM users WHERE login='$name'";
 $result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
+
+$i=0;
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
+    foreach ($line as $col_value)
+		$i+=1;
+
+
+if($i==0)
+{
+	mysql_free_result($result);
+	$query = "INSERT INTO users(login, password,email,info) VALUES ('$name','$passwd','$mail','$info')";
+	$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
+}
+else
+	{
+		mysql_free_result($result);
+		echo "Логин занят";
+	}
 
 // Выполняем SQL-запрос
 $query = 'SELECT * FROM users';
