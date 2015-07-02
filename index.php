@@ -73,6 +73,8 @@
 $link = mysql_connect('127.0.0.1', 'root', '')
     or die('Не удалось соединиться: ' . mysql_error());
 mysql_select_db('ctfbd') or die('Не удалось выбрать базу данных');
+if(count($_GET)>0)
+{
 $name=$_GET["name"];
 $mail=$_GET["e-mail"];
 $info=$_GET["info"];
@@ -92,32 +94,14 @@ if($i==0)
 	mysql_free_result($result);
 	$query = "INSERT INTO users(login, password,email,info) VALUES ('$name','$passwd','$mail','$info')";
 	$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
+	echo "Пользователь ", $name," успешно зарегестрирован.";
 }
 else
 	{
 		mysql_free_result($result);
 		echo "Логин занят";
 	}
-
-// Выполняем SQL-запрос
-$query = 'SELECT * FROM users';
-$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
-
-// Выводим результаты в html
-echo "<table>\n";
-while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
-    echo "\t<tr>\n";
-    foreach ($line as $col_value) {
-        echo "\t\t<td>$col_value</td>\n";
-    }
-    echo "\t</tr>\n";
 }
-echo "</table>\n";
-
-// Освобождаем память от результата
-mysql_free_result($result);
-echo 'Привет ' . htmlspecialchars($_GET["name"]) . '!';
-
 ?>
 
 <p><center><img src="2.gif" alt="minyons"></center></p>
