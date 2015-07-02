@@ -77,6 +77,9 @@ $link = mysql_connect('127.0.0.1', 'root', '')
     or die('Не удалось соединиться: ' . mysql_error());
 echo 'Соединение успешно установлено';
 mysql_select_db('ctfbd') or die('Не удалось выбрать базу данных');
+$query = 'INSERT INTO users(login, password,email,info) VALUES ($_GET["name"], $_GET["password2"],$_GET["e-mail"],$_GET["info"])';
+$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
+
 
 // Выполняем SQL-запрос
 $query = 'SELECT * FROM users';
