@@ -19,13 +19,13 @@ if($i>0)
 $a=sprintf('<html>
 <body bgcolor="#641c10">
 <p><center><img src="1.png" alt="mikky"></center></p>
-<font color="#fff2b4"><p><center><h1>ТАВЕРНА МО</h1></center></p></font>
+<font color="#fff2b4"><p><center><h1>ONLINE БАР</h1></center></p></font>
 
 <p><center><table>
  <tr><td><img src="br.png" alt="mikky"></td>
  <td>
 <p><center><font color="#fff2b4"><h3>Профиль</h3>
- <table width="300" cellspacing="2"  border="2" bgcolor="#fffcff">
+ <table width="300" cellspacing="2"  border="2" bgcolor="#fff2b4">
 				 <tr>
 				   <td><b>Логин</b></td>
 				   <td>%s</td>
@@ -84,13 +84,13 @@ else
 echo '<html>
 <body bgcolor="#641c10">
 <p><center><img src="1.png" alt="mikky"></center></p>
-<font color="#fff2b4"><p><center><h1>ТАВЕРНА МО</h1></center></p></font>
+<font color="#fff2b4"><p><center><h1>ONLINE БАР</h1></center></p></font>
 
 <p><center><table>
  <tr><td><img src="12.gif" alt="mikky"></td>
  <td>
 <p><center><font color="#fff2b4"><h3>Вы не аторизованы</h3>
- <table width="300" cellspacing="2"  border="2" bgcolor="#fffcff">
+ <table width="300" cellspacing="2"  border="2" bgcolor="#fff2b4">
 				 <tr>
 				   <td><b>Логин</b></td>
 				   <td>------</td>
