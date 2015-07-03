@@ -11,7 +11,7 @@
 <p><center><table>
  
  <td>
-<p><center><font color="#fff2b4"><img src="df1.png" align="center"><h3>Заказы</h3>
+<p><center><font color="#fff2b4"><img src="df1.png">
 
 <form name="forma1">
  <table width="300" cellspacing="2"  border="2" bgcolor="#fff2b4">
