@@ -64,6 +64,8 @@ $name=$_GET["name"];
 $mail=$_GET["e-mail"];
 $info=$_GET["info"];
 $passwd=$_GET["password2"];
+$sum=$name+$mail+$info+$passwd+rand(0,count($passwd));
+$trash=md5($sum,false);
 $query = "SELECT * FROM users WHERE login='$name'";
 $result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
@@ -77,7 +79,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
 if($i==0)
 {
 	mysql_free_result($result);
-	$query = "INSERT INTO users(login, password,email,info) VALUES ('$name','$passwd','$mail','$info')";
+	$query = "INSERT INTO users(login, password,email,info,info2) VALUES ('$name','$passwd','$mail','$info','$trash')";
 	$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 	echo "Пользователь ", $name," успешно зарегистрирован.",'<br><img src="22.png" alt="uhu">';
 }

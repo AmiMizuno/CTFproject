@@ -45,33 +45,38 @@ mysql_select_db('ctfbd') or die('Не удалось выбрать базу д�
 if(count($_GET)>0)
 {
 $name=$_GET["name"];
-$mail=$_GET["e-mail"];
-$info=$_GET["info"];
-$passwd=$_GET["password2"];
-$query = "SELECT * FROM users WHERE login='$name'";
+$passwd=$_GET["password"];
+$query = "SELECT * FROM users WHERE login='$name' AND password='$passwd'";
 $result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
 
 $i=0;
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
-    foreach ($line as $col_value)
+    {
+		setcookie("userid",$line['info2']);
 		$i+=1;
+	}
+		
 
 
 if($i==0)
 {
-	mysql_free_result($result);
-	$query = "INSERT INTO users(login, password,email,info) VALUES ('$name','$passwd','$mail','$info')";
-	$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
-	echo "Пользователь ", $name," успешно зарегистрирован.";
-}
-else
-	{
-		mysql_free_result($result);
-		echo "Логин занят",'<br><img src="23.png" alt="mikky">';
 	
+	echo "Неверный логин или пароль";
+}
+}
+if (isset($_COOKIE['userid']))   
+{
+$us=$_COOKIE["userid"];
+$query = "SELECT * FROM users WHERE info2='$us'";
+$result = mysql_query($query) or die('Запрос не удался: '. mysql_error());
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
+    {
+		echo "Hello, ",$line['login'],'!';
 	}
 }
+	
+
 
 ?>
 
