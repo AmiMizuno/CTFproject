@@ -1,7 +1,7 @@
 ﻿<html>
-<body bgcolor="#fff2b4">
+<body bgcolor="#641c10">
 <p><center><img src="1.png" alt="mikky"></center></p>
-<font color="#641c10"><p><center><h1>ТАВЕРНА МО</h1></center></p></font>
+<font color="#fff2b4"><p><center><h1>ТАВЕРНА МО</h1></center></p></font>
 
 
 
@@ -13,13 +13,13 @@
   <font color="#ef6900"><h2>Вход</h2></font>
 
    <tr>
-    <td align="right" valign="top">Логин</td>
+    <td align="right" valign="top"><font color="#fff2b4">Логин</td>
     <td><input type="text" name="name" size="40"></td>
    </tr>
 
 
    <tr>
-    <td align="right" valign="top" >Пароль</td>
+    <td align="right" valign="top" ><font color="#fff2b4">Пароль</td>
     <td>
      <input type="password" name="password" size="40">
     </td>

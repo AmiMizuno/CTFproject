@@ -1,42 +1,42 @@
 ﻿<html>
-<body bgcolor="#fff2b4">
+<body bgcolor="#641c10">
 <p><center><img src="1.png" alt="mikky"></center></p>
-<font color="#641c10"><p><center><h1>ТАВЕРНА МО</h1></center></p></font>
+<font color="#fff2b4"><p><center><h1>ТАВЕРНА МО</h1></center></p></font>
 
 
 
 <p><center>
 <form name="forma1">
-    
+    <font color="#ef6900">
  <table  border="0" cellspacing="5" cellpadding="5">
 
-  <font color="#ef6900"><h2>Регистрация</h2></font>
+  <h2>Регистрация</h2>
 
-   <tr>
-    <td align="right" valign="top">Логин</td>
+   <tr>    
+    <td align="right" valign="top"><font color="#fff2b4">Логин</td>
     <td><input type="text" name="name" size="40"></td>
    </tr>
 
    <tr>
-    <td align="right" valign="top">e-mail</td>
+    <td align="right" valign="top"><font color="#fff2b4">E-mail</td>
     <td><input type="text" name="e-mail" size="40"></td>
    </tr>
 
    <tr>
-    <td align="right" valign="top" >Пароль</td>
+    <td align="right" valign="top" ><font color="#fff2b4">Пароль</td>
     <td>
      <input type="password" name="password" size="40">
     </td>
    </tr>
 
    <tr>
-    <td align="right" valign="top" >Повтор пароля</td>
+    <td align="right" valign="top" ><font color="#fff2b4">Повтор пароля</td>
     <td>
      <input type="password" name="password2" size="40">
     </td>
    </tr>
    <tr>
-    <td align="right" valign="top">О себе</td>
+    <td align="right" valign="top"><font color="#fff2b4">О себе</td>
     <td>
      <input type="info" name="info" size="40">
     </td>
@@ -49,7 +49,7 @@
    </tr>
 
  </table>
-
+</font>
 </form>
 
    </center></p>
