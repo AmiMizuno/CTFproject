@@ -42,8 +42,8 @@
     </tr>
 	
 			   </table>
-			   </form>
-<tr><td><form name="forma5">
+			 
+<tr><td>
 
 <p><center><input type="submit" name="submit" value="Сделать заказ"></center></p>
 
@@ -55,11 +55,58 @@
    </td>
    </table>
      </center></p>
+
 <?php
 
+if (isset($_COOKIE['userid']))   
+{
+$link = mysql_connect('127.0.0.1', 'root', '')
+    or die('Не удалось соединиться: ' . mysql_error());
+mysql_select_db('ctfbd') or die('Не удалось выбрать базу данных');
+$us=$_COOKIE['userid'];
+$query = "SELECT * FROM users WHERE info2='$us'";
+$result = mysql_query($query) or die('Запрос не удался: '. mysql_error());
+$i=0;
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
+    {
+		$i+=1;
+		
+	}
+if($i>0)
+{
+	if(isset($_REQUEST['wsk1'])||isset($_REQUEST['vodka'])||isset($_REQUEST['wsk2'])||isset($_REQUEST['martini'])||isset($_REQUEST['liker'])||isset($_REQUEST['jack']))
+	{
+	$chivas=0;
+	$vodka=0;
+	$johnnie=0;
+	$bianco=0;
+	$kuyper=0;
+	$jack=0;
 	
-
+	if(isset($_REQUEST['wsk1']))
+		$chivas=$_REQUEST['chival'];
+	if(isset($_REQUEST['vodka']))
+		$vodka=$_REQUEST['absol'];
+	if(isset($_REQUEST['wsk2']))
+		$johnnie=$_REQUEST['johnie'];
+	if(isset($_REQUEST['martini']))
+		$bianco=$_REQUEST['bianco'];
+	if(isset($_REQUEST['liker']))
+		$kuyper=$_REQUEST['dekuyper'];
+	if(isset($_REQUEST['jack']))
+		$jack=$_REQUEST['jd'];
+	$sum=$chivas*4000+$vodka*1149+$johnnie*3500+$bianco*900+$kuyper*405+$jack*2669;
+	$query = "INSERT INTO purchases (userid, JD, AV,Martini,Whiskey,JW,Liqueur,sum)
+VALUES ('$us','$jack','$vodka','$bianco','$chivas','$johnnie','$kuyper','$sum')";
+$result = mysql_query($query) or die('Запрос не удался: '. mysql_error());
+echo "<h2>Заказ успешно оформлен!</h2>";
+}		
+}
+else
+echo "<h2>Вы не автроризированы!</h2>";
+}
+else
+echo "<h2>Вы не автроризированы!</h2>";
 ?>
-
 
 </html>
