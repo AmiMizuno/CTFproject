@@ -1,8 +1,8 @@
 ﻿<html>
 <body bgcolor="#641c10">
 <p><center><img src="1.png" alt="mikky"></center></p>
-<font color="#fff2b4"><p><center><h1>ТАВЕРНА МО</h1></center></p></font>
-
+<font color="#fff2b4"><p><center><h1>ONLINE БАР</h1></font>
+<img src="menu.png"></center></p>
 
 
 <p><center>
