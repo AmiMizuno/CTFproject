@@ -10,6 +10,8 @@
                 href="reg.php" alt="регистрация">
 		<area shape="rect" coords="320,20, 400,192"
                 href="orders.php" alt="заказы">
+		<area shape="rect" coords="410,20, 450,82"
+                href="beer.php" alt="пиво">
 		<area shape="rect" coords="420,80, 510,192"
                 href="catalog.php" alt="каталог">
           <area shape="rect" coords="521,20, 620,192"
@@ -21,7 +23,7 @@
 		
       </map>
 
-
+<font color="#ef6900"><p><center><h3>-Нажми на бутылку!</h3></font>
 <p><center><img src="15.png" usemap="#map" border="0">
       <map name="map">  
 		   <area shape="rect" coords="360,0, 250,192"
