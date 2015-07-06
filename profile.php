@@ -59,15 +59,38 @@ $a=sprintf('<html>
 				 </tr>
 				 
 			   </table>
- <button>
-    <img src="df.png" alt="" style="vertical-align:middle"> 
-    Мои заказы
-   </button>
-   </center></p>
+
+   ',$login,$email,$info);
+echo $a;
+
+$query = "SELECT * FROM purchases WHERE userid='$us'";
+$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
+
+
+$i=0;
+echo '<p align="center" style="color:#fff2b4; font-size:16pt">Ваши заказы:</p><table cellspacing="2"  border="2" bgcolor="#fff2b4"><tr><td>Виски «Chivas Regal»</td> <td>Водка «Абсолют»</td><td>Виски Johnnie Walker</td><td>Мартини Bianco</td><td>Ликер De Kuyper Creme de Cassis</td><td>Виски Jack Daniels № 7</td><td>Сумма(руб.)</td></tr>';
+$ii=0;
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
+    foreach ($line as $col_value)
+		{
+			
+			$i+=1;
+			if($ii==9)
+			$ii=0;
+			if($ii==0)
+			{
+				$a=sprintf('<tr><td>%d</td> <td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>',$line['Whiskey'],$line['AV'],$line['JW'],$line['Martini'],$line['Liqueur'],$line['JD'],$line['Sum']);
+				echo $a;
+			}
+			$ii+=1;
+		}
+if($i==0)
+echo '<tr><td colspan="7"><p align="center" style="color; font-size:16pt">Вы еще не совершали покупок</p></td></tr>';
+
+echo'</p></table></center></p>
    </td>
    </table>
-     </center></p>',$login,$email,$info);
-echo $a;
+     </center></p>';
 }
 else echo '<html>
 <body bgcolor="#641c10">
