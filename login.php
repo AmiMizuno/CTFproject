@@ -65,7 +65,7 @@ mysql_select_db('ctfbd') or die('Не удалось выбрать базу д�
 if(count($_GET)>0)
 {
 $name=$_GET["name"];
-$passwd=$_GET["password"];
+$passwd=md5($_GET["password"]);
 $query = "SELECT * FROM users WHERE login='$name' AND password='$passwd'";
 $result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
@@ -77,6 +77,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
 		$b=true;
 		$i+=1;
 		$us=$line['info2'];
+		$_COOKIE['userid']=$line['info2'];
 	}
 		
 
@@ -86,6 +87,7 @@ if($i==0)
 	
 	echo "Неверный логин или пароль";
 }
+
 }
 if (isset($_COOKIE['userid'])||$b)   
 {

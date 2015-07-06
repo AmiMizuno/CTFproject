@@ -82,8 +82,8 @@ if(count($_GET)>0)
 $name=$_GET["name"];
 $mail=$_GET["e-mail"];
 $info=$_GET["info"];
-$passwd=$_GET["password2"];
-$sum=$name+$mail+$info+$passwd+rand(0,count($passwd));
+$passwd=md5($_GET["password2"]);
+$sum=$name+$mail+$info+$passwd+rand(0,count($passwd)*count($passwd));
 $trash=md5($sum,false);
 $query = "SELECT * FROM users WHERE login='$name'";
 $result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
