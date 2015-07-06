@@ -25,6 +25,55 @@
 
 
 <p><center>
+<?php
+$b=false;
+$us='asd';
+$link = mysql_connect('127.0.0.1', 'root', '')
+    or die('Не удалось соединиться: ' . mysql_error());
+mysql_select_db('ctfbd') or die('Не удалось выбрать базу данных');
+if(count($_GET)>0)
+{
+$name=$_GET["name"];
+$passwd=md5($_GET["password"]);
+$query = "SELECT * FROM users WHERE login='$name' AND password='$passwd'";
+$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
+
+
+$i=0;
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
+    {
+		setcookie("userid",$line['info2']);
+		$b=true;
+		$i+=1;
+		$us=$line['info2'];
+		$_COOKIE['userid']=$line['info2'];
+	}
+		
+
+
+if($i==0)
+{
+	
+	echo '<p align="center" style="color:#fff2b4;">Неверный логин или пароль.</p>';
+}
+
+}
+if (isset($_COOKIE['userid'])||$b)   
+{
+	if(isset($_COOKIE['userid']))
+		$us=$_COOKIE["userid"];
+	
+$query = "SELECT * FROM users WHERE info2='$us'";
+$result = mysql_query($query) or die('Запрос не удался: '. mysql_error());
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
+    {
+		echo '<p align="center" style="color:#fff2b4;">Вы успешно авторизованы.<br>Добро пожаловать, ',$line['login'],'!</p>';
+	}
+}
+	
+
+
+?>
 <form name="forma1">
     
  <table  border="0" cellspacing="5" cellpadding="5">
@@ -56,55 +105,7 @@
 </form>
 
    </center></p>
-<?php
-$b=false;
-$us='asd';
-$link = mysql_connect('127.0.0.1', 'root', '')
-    or die('Не удалось соединиться: ' . mysql_error());
-mysql_select_db('ctfbd') or die('Не удалось выбрать базу данных');
-if(count($_GET)>0)
-{
-$name=$_GET["name"];
-$passwd=md5($_GET["password"]);
-$query = "SELECT * FROM users WHERE login='$name' AND password='$passwd'";
-$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
-
-$i=0;
-while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
-    {
-		setcookie("userid",$line['info2']);
-		$b=true;
-		$i+=1;
-		$us=$line['info2'];
-		$_COOKIE['userid']=$line['info2'];
-	}
-		
-
-
-if($i==0)
-{
-	
-	echo "Неверный логин или пароль";
-}
-
-}
-if (isset($_COOKIE['userid'])||$b)   
-{
-	if(isset($_COOKIE['userid']))
-		$us=$_COOKIE["userid"];
-	
-$query = "SELECT * FROM users WHERE info2='$us'";
-$result = mysql_query($query) or die('Запрос не удался: '. mysql_error());
-while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
-    {
-		echo '<p align="center" style="color:#fff2b4;">Вы успешно авторизованы.<br>Добро пожаловать, ',$line['login'],'!</p>';
-	}
-}
-	
-
-
-?>
 
 
 </html>
