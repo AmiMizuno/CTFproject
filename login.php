@@ -1,7 +1,7 @@
 ﻿<html>
 <body bgcolor="#641c10">
 <p><center><img src="1.png" alt="mikky"></center></p>
-<font color="#fff2b4"><p><center><h1>ТАВЕРНА МО</h1></center></p></font>
+<font color="#fff2b4"><p><center><h1>ONLINE БАР</h1></center></p></font>
 <p><center><img src="menu.png" usemap="#map1" border="0">
       <map name="map1">  
 	  <area shape="rect" coords="110,20, 200,192"
