@@ -19,7 +19,7 @@
 		  <area shape="rect" coords="640,90, 720,192"
                 href="login.php" alt="вход">
 				<area shape="rect" coords="640,30, 720,70"
-                href="#" alt="выход">
+                href="logout.php" alt="выход">
 		
       </map>
 
