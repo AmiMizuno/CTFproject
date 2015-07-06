@@ -5,7 +5,7 @@
 <img src="menu.png" usemap="#map1" border="0">
       <map name="map1">  
 	  <area shape="rect" coords="110,20, 200,192"
-                href="#" alt="главная">
+                href="index.php" alt="главная">
 	  <area shape="rect" coords="210,80, 300,192"
                 href="reg.php" alt="регистрация">
 		<area shape="rect" coords="320,20, 400,192"
