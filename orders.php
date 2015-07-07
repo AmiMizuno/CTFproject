@@ -97,7 +97,7 @@ if($i>0)
   
 
 </form></td>
-<tr><td><img src="hm.png" alt="mikky"></td>
+
    </center></p>
    </td>
    </table>
@@ -127,7 +127,7 @@ if($i>0)
 	$query = "INSERT INTO purchases (userid, JD, AV,Martini,Whiskey,JW,Liqueur,sum)
 VALUES ('$us','$jack','$vodka','$bianco','$chivas','$johnnie','$kuyper','$sum')";
 $result = mysql_query($query) or die('Запрос не удался: '. mysql_error());
-echo "<h2>Заказ успешно оформлен!</h2>";
+echo '<img src="vt.png"><h2>Заказ успешно оформлен!</h2>';
 }		
 }
 else
