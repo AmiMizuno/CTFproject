@@ -27,7 +27,13 @@
                 href="login.php" alt="вход">
 				<area shape="rect" coords="640,30, 720,70"
                 href="logout.php" alt="выход">
-		
+				
+				
+	<form  name="fm2" method="post">
+    <p><font color="#fff2b4"><b>Введите ваш отзыв:</b></p>
+    <p><textarea rows="10" cols="45" name="text"></textarea></p>
+    <p><input type="submit" value="Отправить"></p>
+  </form>
       </map>
 	  
 	  </th></table></th>
