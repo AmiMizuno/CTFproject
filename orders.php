@@ -60,7 +60,7 @@ if($i>0)
  <td>
 <p><center><font color="#fff2b4"><img src="df1.png">
 
-<form name="forma1">
+<form name="forma1" method="post">
  <table width="300" cellspacing="2"  border="2" bgcolor="#fff2b4">
 				    <tr>
 		<th></th>	
@@ -102,7 +102,7 @@ if($i>0)
    </td>
    </table>
      </center></p>';
-	if(isset($_REQUEST['wsk1'])||isset($_REQUEST['vodka'])||isset($_REQUEST['wsk2'])||isset($_REQUEST['martini'])||isset($_REQUEST['liker'])||isset($_REQUEST['jack']))
+	if(isset($_POST['wsk1'])||isset($_POST['vodka'])||isset($_POST['wsk2'])||isset($_POST['martini'])||isset($_POST['liker'])||isset($_POST['jack']))
 	{
 	$chivas=0;
 	$vodka=0;
@@ -111,18 +111,18 @@ if($i>0)
 	$kuyper=0;
 	$jack=0;
 	
-	if(isset($_REQUEST['wsk1']))
-		$chivas=$_REQUEST['chival'];
-	if(isset($_REQUEST['vodka']))
-		$vodka=$_REQUEST['absol'];
-	if(isset($_REQUEST['wsk2']))
-		$johnnie=$_REQUEST['johnie'];
-	if(isset($_REQUEST['martini']))
-		$bianco=$_REQUEST['bianco'];
-	if(isset($_REQUEST['liker']))
-		$kuyper=$_REQUEST['dekuyper'];
-	if(isset($_REQUEST['jack']))
-		$jack=$_REQUEST['jd'];
+	if(isset($_POST['wsk1']))
+		$chivas=$_POST['chival'];
+	if(isset($_POST['vodka']))
+		$vodka=$_POST['absol'];
+	if(isset($_POST['wsk2']))
+		$johnnie=$_POST['johnie'];
+	if(isset($_POST['martini']))
+		$bianco=$_POST['bianco'];
+	if(isset($_POST['liker']))
+		$kuyper=$_POST['dekuyper'];
+	if(isset($_POST['jack']))
+		$jack=$_POST['jd'];
 	$sum=$chivas*4000+$vodka*1149+$johnnie*3500+$bianco*900+$kuyper*405+$jack*2669;
 	$query = "INSERT INTO purchases (userid, JD, AV,Martini,Whiskey,JW,Liqueur,sum)
 VALUES ('$us','$jack','$vodka','$bianco','$chivas','$johnnie','$kuyper','$sum')";
