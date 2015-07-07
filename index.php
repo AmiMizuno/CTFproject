@@ -27,18 +27,36 @@
                 href="login.php" alt="вход">
 				<area shape="rect" coords="640,30, 720,70"
                 href="logout.php" alt="выход">
+				<table align="center">
+				<tr><td>
+				<table>
 				
 				
+<?php
+	$link = mysql_connect('127.0.0.1', 'root', '')
+	or die('Не удалось соединиться: ' . mysql_error());
+	mysql_select_db('ctfbd') or die('Не удалось выбрать базу данных');
+	$query = "SELECT * FROM comments ORDER BY id DESC LIMIT 10;";
+	$result = mysql_query($query) or die('Запрос не удался: '. mysql_error());
+	while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
+    {
+		echo '<tr><td><font color="#fff204">[',$line['data'],']</td><td><font color="#f0f2b4">',$line['user'],':</td><td><font color="#fff2b4">',$line['text'],'</td></tr>';
+	}
+
+	?>	
+	</table>	</td></tr><tr>
+	<td>
 	<form  name="fm2" method="post">
-    <p><font color="#fff2b4"><b>Введите ваш отзыв:</b></p>
-    <p><textarea rows="10" cols="45" name="text"></textarea></p>
-    <p><input type="submit" value="Отправить"></p>
+    <p align="center"><font color="#fff2b4"><b>Введите ваш отзыв:</b></p>
+    <p align="center"><textarea rows="10" cols="45" name="text"></textarea></p>
+    <p align="center"><input type="submit" value="Отправить"></p>
   </form>
       </map>
+	  </td>
+	  </tr>
+	  </table>
 	  <?php
-$link = mysql_connect('127.0.0.1', 'root', '')
-    or die('Не удалось соединиться: ' . mysql_error());
-mysql_select_db('ctfbd') or die('Не удалось выбрать базу данных');
+
 if(isset($_POST["text"]))
 {
 	$text=$_POST["text"];
