@@ -35,7 +35,35 @@
     <p><input type="submit" value="Отправить"></p>
   </form>
       </map>
-	  
+	  <?php
+$link = mysql_connect('127.0.0.1', 'root', '')
+    or die('Не удалось соединиться: ' . mysql_error());
+mysql_select_db('ctfbd') or die('Не удалось выбрать базу данных');
+if(isset($_POST["text"]))
+{
+	$text=$_POST["text"];
+	$b=0;
+	$us=0;
+	if(isset($_COOKIE['userid']))
+		$us=$_COOKIE["userid"];	
+	
+	$query = "SELECT * FROM users WHERE info2='$us'";
+	$result = mysql_query($query) or die('Запрос не удался: '. mysql_error());
+	while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
+    {
+		$us=$line['login'];
+		$b=1;
+	}
+	if($b==1)
+	{
+		$query = "INSERT INTO comments (user, text)
+		VALUES ('$us','$text')";
+		$result = mysql_query($query) or die('Запрос не удался: '. mysql_error());
+	}
+	else
+		echo 'Записи могут делать только авторизованные пользователи';
+}
+?>
 	  </th></table></th>
 	<td style="width: 15%; height: 100%; vertical-align: top;" ><img src="67.png"><br><br><br><img src="76.png"><img src="678.png"></td>
    </tr>
