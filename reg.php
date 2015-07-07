@@ -31,7 +31,7 @@
       </map></center></p>
 
 <p><center>
-<form name="forma1">
+<form name="forma1" method="post">
     <font color="#ef6900">
  <table  border="0" cellspacing="5" cellpadding="5">
 
@@ -83,12 +83,12 @@
 $link = mysql_connect('127.0.0.1', 'root', '')
     or die('Не удалось соединиться: ' . mysql_error());
 mysql_select_db('ctfbd') or die('Не удалось выбрать базу данных');
-if(count($_GET)>0)
+if(count($_POST)>0)
 {
-$name=$_GET["name"];
-$mail=$_GET["e-mail"];
-$info=$_GET["info"];
-$passwd=md5($_GET["password2"]);
+$name=$_POST["name"];
+$mail=$_POST["e-mail"];
+$info=$_POST["info"];
+$passwd=md5($_POST["password2"]);
 $sum=$name+$mail+$info+$passwd+rand(0,count($passwd)*count($passwd));
 $trash=md5($sum,false);
 $query = "SELECT * FROM users WHERE login='$name'";

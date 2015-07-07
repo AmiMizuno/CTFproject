@@ -37,10 +37,10 @@ $us='asd';
 $link = mysql_connect('127.0.0.1', 'root', '')
     or die('Не удалось соединиться: ' . mysql_error());
 mysql_select_db('ctfbd') or die('Не удалось выбрать базу данных');
-if(count($_GET)>0)
+if(count($_POST)>0)
 {
-$name=$_GET["name"];
-$passwd=md5($_GET["password"]);
+$name=$_POST["name"];
+$passwd=md5($_POST["password"]);
 $query = "SELECT * FROM users WHERE login='$name' AND password='$passwd'";
 $result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
@@ -80,7 +80,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
 
 
 ?>
-<form name="forma1">
+<form name="forma1" method="post">
     
  <table  border="0" cellspacing="5" cellpadding="5">
 
