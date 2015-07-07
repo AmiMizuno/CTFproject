@@ -77,7 +77,7 @@ $result = mysql_query($query) or die('Запрос не удался: ' . mysql_
 
 
 $i=0;
-echo '<p align="center" style="color:#fff2b4; font-size:16pt">Ваши заказы:</p><table cellspacing="2"  border="2" bgcolor="#fff2b4"><tr><td>Виски «Chivas Regal»</td> <td>Водка «Абсолют»</td><td>Виски Johnnie Walker</td><td>Мартини Bianco</td><td>Ликер De Kuyper Creme de Cassis</td><td>Виски Jack Daniels № 7</td><td>Сумма(руб.)</td></tr>';
+echo '<p align="center" style="color:#fff2b4; font-size:16pt">Ваши заказы:</p><table style="border-radius: 10px; cellspacing="2"  border="0" bgcolor="#fff2b4"><tr bgcolor="#b93822"><td><font color="#fff2b4">Виски «Chivas Regal»</td> <td><font color="#fff2b4">Водка «Абсолют»</td><td><font color="#fff2b4">Виски Johnnie Walker</td><td><font color="#fff2b4">Мартини Bianco</td><td><font color="#fff2b4">Ликер De Kuyper Creme de Cassis</td><td><font color="#fff2b4">Виски Jack Daniels № 7</td><td><font color="#fff2b4"><h2>Сумма(руб.)</h2></td></tr>';
 $ii=0;
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
     foreach ($line as $col_value)
