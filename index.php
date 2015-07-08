@@ -80,6 +80,7 @@ if(isset($_POST["text"]))
 	}
 	else
 		echo 'Записи могут делать только авторизованные пользователи';
+	header('Location: index.php');
 }
 ?>
 	  </th></table></th>
