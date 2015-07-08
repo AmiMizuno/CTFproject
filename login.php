@@ -41,6 +41,11 @@ if(count($_POST)>0)
 {
 $name=$_POST["name"];
 $passwd=md5($_POST["password"]);
+$p = '#^[aA-zZ0-9\-_]+$#';
+if(!preg_match($p,$_POST["name"]) or !preg_match($p,$_POST["password"]))
+	echo 'Имеются запрещённые символы';
+	else{
+	
 $query = "SELECT * FROM users WHERE login='$name' AND password='$passwd'";
 $result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
@@ -76,7 +81,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
 		echo '<p align="center" style="color:#fff2b4;">Вы успешно авторизованы.<br>Добро пожаловать, ',$line['login'],'!</p>';
 	}
 }
-	
+}
 
 
 ?>

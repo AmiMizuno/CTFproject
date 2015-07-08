@@ -85,6 +85,11 @@ $link = mysql_connect('127.0.0.1', 'root', '')
 mysql_select_db('ctfbd') or die('Не удалось выбрать базу данных');
 if(isset($_POST["name"]) and isset ($_POST["e-mail"]) and isset($_POST["info"]) and isset($_POST["password2"]) and isset($_POST["password"]))
 {
+$p = '#^[aA-zZ0-9\-_]+$#';
+if(!preg_match($p,$_POST["name"]) or !preg_match($p,$_POST["e-mail"]) or !preg_match($p,$_POST["info"]) or !preg_match($p,$_POST["password2"]) or !preg_match($p,$_POST["password"]))
+	echo 'Имеются запрещённые символы';
+	else{
+
 if($_POST["password2"]!=$_POST["password"])
 	echo  '<p align="center" style="color:#fff2b4;font-size:25pt" >Пароли не совпадают</p>';
 else
@@ -122,6 +127,7 @@ else
 		mysql_free_result($result);
 		echo '<p align="center" style="color:#fff2b4;font-size:25pt" > Логин занят.</p><img src="23.png" alt="doh"><br>';
 	
+	}
 	}
 }
 }

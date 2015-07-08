@@ -110,7 +110,6 @@ if($i>0)
 	$bianco=0;
 	$kuyper=0;
 	$jack=0;
-	
 	if(isset($_POST['wsk1']))
 		$chivas=$_POST['chival'];
 	if(isset($_POST['vodka']))
@@ -127,8 +126,8 @@ if($i>0)
 	$query = "INSERT INTO purchases (userid, JD, AV,Martini,Whiskey,JW,Liqueur,sum)
 VALUES ('$us','$jack','$vodka','$bianco','$chivas','$johnnie','$kuyper','$sum')";
 $result = mysql_query($query) or die('Запрос не удался: '. mysql_error());
-echo '<img src="vt.png"><h2>Заказ успешно оформлен!</h2>';
-}		
+echo '<img src="vt.png"><p align="center" style="color:#fff2b4;font-size:25pt" >Заказ успешно оформлен!</p>';	
+}	
 }
 else
 echo '<p align="center" style="color:#fff2b4;font-size:25pt" ><img src="mo.png" alt="mikky"><br>Вы не авторизованы!</p>';
