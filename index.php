@@ -45,7 +45,7 @@
 
 	?>	
 	</table>	</td></tr><tr>
-	<td>
+	<td><img src="io.png">
 	<form  name="fm2" method="post">
     <p align="center"><font color="#fff2b4"><b>Введите ваш отзыв:</b></p>
     <p align="center"><textarea maxlength="80" rows="1" cols="45" name="text"></textarea></p>
