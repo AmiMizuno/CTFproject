@@ -29,6 +29,7 @@
                 href="logout.php" alt="выход">
 				<table align="center">
 				<tr><td>
+				<img src="io.png">
 				<table>
 				
 				
@@ -45,7 +46,7 @@
 
 	?>	
 	</table>	</td></tr><tr>
-	<td><img src="io.png">
+	<td>
 	<form  name="fm2" method="post">
     <p align="center"><font color="#fff2b4"><b>Введите ваш отзыв:</b></p>
     <p align="center"><textarea maxlength="80" rows="1" cols="45" name="text"></textarea></p>
@@ -59,6 +60,10 @@
 
 if(isset($_POST["text"]))
 {
+	$p = '#^[aA-zZа-яА-Я0-9\-_]+$#';
+if(!preg_match($p,$_POST["text"]))
+	echo 'Имеются запрещённые символы';
+	else{
 	$text=$_POST["text"];
 	$b=0;
 	$us=0;
@@ -77,10 +82,11 @@ if(isset($_POST["text"]))
 		$query = "INSERT INTO comments (user, text)
 		VALUES ('$us','$text')";
 		$result = mysql_query($query) or die('Запрос не удался: '. mysql_error());
+		header('Location: index.php');
 	}
 	else
 		echo 'Записи могут делать только авторизованные пользователи';
-}
+		}}
 ?>
 	  </th></table></th>
 	<td style="width: 15%; height: 100%; vertical-align: top;" ><img src="67.png"><br><br><br><img src="76.png"><img src="678.png"></td>

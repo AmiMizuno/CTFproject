@@ -103,7 +103,7 @@ if ($name=="" or $mail=="" or $info=="" or $passwd=="" )
 	
 }
 else{
-$sum=$name+$mail+$info+$passwd+rand(0,count($passwd)*count($passwd));
+$sum=$name+rand(0,count($passwd))+$name+$name+rand(0,count($passwd))+$name;
 $trash=md5($sum,false);
 $query = "SELECT * FROM users WHERE login='$name'";
 $result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
