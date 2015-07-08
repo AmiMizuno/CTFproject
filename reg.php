@@ -83,12 +83,21 @@
 $link = mysql_connect('127.0.0.1', 'root', '')
     or die('Не удалось соединиться: ' . mysql_error());
 mysql_select_db('ctfbd') or die('Не удалось выбрать базу данных');
-if(count($_POST)>0)
+if(isset($_POST["name"]) and isset ($_POST["e-mail"]) and isset($_POST["info"]) and isset($_POST["password2"]) and isset($_POST["password"]))
+{
+if($_POST["password2"]!=$_POST["password"])
+	echo  '<p align="center" style="color:#fff2b4;font-size:25pt" >Пароли не совпадают</p>';
+else
 {
 $name=$_POST["name"];
 $mail=$_POST["e-mail"];
 $info=$_POST["info"];
 $passwd=md5($_POST["password2"]);
+if ($name=="" or $mail=="" or $info=="" or $passwd=="" )
+{echo '<p align="center" style="color:#fff2b4;font-size:25pt" >Все поля должны быть заполнены!</p>';
+	
+}
+else{
 $sum=$name+$mail+$info+$passwd+rand(0,count($passwd)*count($passwd));
 $trash=md5($sum,false);
 $query = "SELECT * FROM users WHERE login='$name'";
@@ -115,7 +124,8 @@ else
 	
 	}
 }
-
+}
+}
 ?>
 
 </th></table></th><td style="width: 15%; height: 100%; vertical-align: top;" ><img src="67.png"><br><br><br><img src="76.png"><img src="678.png"></td>

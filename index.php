@@ -48,7 +48,7 @@
 	<td>
 	<form  name="fm2" method="post">
     <p align="center"><font color="#fff2b4"><b>Введите ваш отзыв:</b></p>
-    <p align="center"><textarea rows="1" cols="45" name="text"></textarea></p>
+    <p align="center"><textarea maxlength="80" rows="1" cols="45" name="text"></textarea></p>
     <p align="center"><input type="submit" value="Отправить"></p>
   </form>
       </map>
@@ -80,7 +80,6 @@ if(isset($_POST["text"]))
 	}
 	else
 		echo 'Записи могут делать только авторизованные пользователи';
-	header('Location: index.php');
 }
 ?>
 	  </th></table></th>
