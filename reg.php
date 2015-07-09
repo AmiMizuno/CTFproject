@@ -87,11 +87,11 @@ if(isset($_POST["name"]) and isset ($_POST["e-mail"]) and isset($_POST["info"]) 
 {
 $p = '#^[aA-zZ0-9\-_]+$#';
 if(!preg_match($p,$_POST["name"]) or !preg_match($p,$_POST["e-mail"]) or !preg_match($p,$_POST["info"]) or !preg_match($p,$_POST["password2"]) or !preg_match($p,$_POST["password"]))
-	echo 'Имеются запрещённые символы';
+	echo '<font color="red">Имеются запрещённые символы</font>';
 	else{
 
 if($_POST["password2"]!=$_POST["password"])
-	echo  '<p align="center" style="color:#fff2b4;font-size:25pt" >Пароли не совпадают</p>';
+	echo  '<p align="center" style="color:red;font-size:25pt" >Пароли не совпадают</p>';
 else
 {
 $name=$_POST["name"];
@@ -99,11 +99,17 @@ $mail=$_POST["e-mail"];
 $info=$_POST["info"];
 $passwd=md5($_POST["password2"]);
 if ($name=="" or $mail=="" or $info=="" or $passwd=="" )
-{echo '<p align="center" style="color:#fff2b4;font-size:25pt" >Все поля должны быть заполнены!</p>';
+{echo '<p align="center" style="color:red;font-size:25pt" >Все поля должны быть заполнены!</p>';
 	
 }
 else{
-$sum=$name+rand(0,count($passwd))+$name+$name+rand(0,count($passwd))+$name;
+mt_srand(time());
+$sum=$name;
+$sum.=strval(mt_rand(0,strlen($passwd)));
+$sum.=$sum;
+$sum.=$sum;
+$sum.=strval(mt_rand(0,strlen($passwd)));
+$sum.=$sum;
 $trash=md5($sum,false);
 $query = "SELECT * FROM users WHERE login='$name'";
 $result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
@@ -125,7 +131,7 @@ if($i==0)
 else
 	{
 		mysql_free_result($result);
-		echo '<p align="center" style="color:#fff2b4;font-size:25pt" > Логин занят.</p><img src="23.png" alt="doh"><br>';
+		echo '<p align="center" style="color:red;font-size:25pt" > Логин занят.</p><img src="23.png" alt="doh"><br>';
 	
 	}
 	}

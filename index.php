@@ -62,7 +62,7 @@ if(isset($_POST["text"]))
 {
 	$p = '#^[aA-zZа-яА-Я0-9\-_]+$#';
 if(!preg_match($p,$_POST["text"]))
-	echo 'Имеются запрещённые символы';
+	echo '<font color="red">Имеются запрещённые символы</font>';
 	else{
 	$text=$_POST["text"];
 	$b=0;
@@ -85,7 +85,7 @@ if(!preg_match($p,$_POST["text"]))
 		header('Location: index.php');
 	}
 	else
-		echo 'Записи могут делать только авторизованные пользователи';
+		echo '<font color="red">Записи могут делать только авторизованные пользователи</font>';
 		}}
 ?>
 	  </th></table></th>

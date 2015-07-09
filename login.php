@@ -43,7 +43,7 @@ $name=$_POST["name"];
 $passwd=md5($_POST["password"]);
 $p = '#^[aA-zZ0-9\-_]+$#';
 if(!preg_match($p,$_POST["name"]) or !preg_match($p,$_POST["password"]))
-	echo 'Имеются запрещённые символы';
+	echo '<font color="red">Имеются запрещённые символы</font>';
 	else{
 	
 $query = "SELECT * FROM users WHERE login='$name' AND password='$passwd'";
@@ -65,7 +65,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
 if($i==0)
 {
 	
-	echo '<p align="center" style="color:#fff2b4;">Неверный логин или пароль.</p>';
+	echo '<p align="center" style="color:red;">Неверный логин или пароль.</p>';
 }
 
 }
