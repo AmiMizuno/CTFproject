@@ -74,12 +74,10 @@ def check_flag(ip, flag, info):
 		#login
 		post_param = 'name=' + login + '&password=' + pswd
 		response, content = h.request(string_login, 'POST', post_param, headers=headers)
-		print content
 		headers['Cookie'] = response['set-cookie']
 		#get flag from profile.php
 		post_param = ''
 		response, content = h.request(string_check, 'POST', post_param, headers=headers)
-		print content
 		if flag in content:
 			return True
 		else:
