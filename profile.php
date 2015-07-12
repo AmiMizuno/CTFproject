@@ -63,7 +63,7 @@ $a=sprintf('
 				   <td>%s</td>
 				 </tr>
 				 <tr>
-				   <td><b>О себе</b></td>
+				   <td><b>Адрес</b></td>
 				   <td>%s</td>
 				 </tr>
 				 

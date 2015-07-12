@@ -61,7 +61,7 @@
     </td>
    </tr>
    <tr>
-    <td align="right" valign="top"><font color="#fff2b4">О себе</td>
+    <td align="right" valign="top"><font color="#fff2b4">Адрес</td>
     <td>
      <input type="info" name="info" size="40">
     </td>
