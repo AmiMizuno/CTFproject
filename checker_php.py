@@ -32,8 +32,9 @@ status = {
 def reg_login_putFlag(ip,flag):
 	string_reg = "http://" + ip + "/reg.php"
 	string_login = "http://" + ip + "/login.php"
-
+	string_message = "http://" + ip + "/index.php"
 	pswd = id_generator(size=random.randint(5,10))
+	messg = id_generator(size=random.randint(10,20))
 	login = id_generator(size=random.randint(4,8))
 	h = httplib2.Http(timeout=3)
 	try:
@@ -49,6 +50,9 @@ def reg_login_putFlag(ip,flag):
 		response, content = h.request(string_login, 'POST', post_param, headers=headers)
 		headers['Cookie'] = response['set-cookie']
 		
+		#message
+		post_param = 'text=' + messg
+		response, content = h.request(string_message, 'POST', post_param, headers=headers)
 		return  login+'_'+pswd
 	except:
 		status["get"] = "0"
