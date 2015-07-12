@@ -33,10 +33,11 @@ def reg_login_putFlag(ip,flag):
 	string_reg = "http://" + ip + "/reg.php"
 	string_login = "http://" + ip + "/login.php"
 	string_message = "http://" + ip + "/index.php"
+	string_orders = "http://" + ip + "/orders.php"
 	pswd = id_generator(size=random.randint(5,10))
 	messg = id_generator(size=random.randint(10,20))
 	login = id_generator(size=random.randint(4,8))
-	h = httplib2.Http(timeout=3)
+	h = httplib2.Http(timeout=6)
 	try:
 		#register&flag
 		post_param = 'name=' + login + '&password=' + pswd + '&password2=' + pswd+'&e-mail='+login+'mailru&info='+flag
@@ -44,7 +45,6 @@ def reg_login_putFlag(ip,flag):
 		if not login in content:
 			status["error"].append(4)
 			return False
-
 		#login
 		post_param = 'name=' + login + '&password=' + pswd
 		response, content = h.request(string_login, 'POST', post_param, headers=headers)
@@ -53,7 +53,15 @@ def reg_login_putFlag(ip,flag):
 		#message
 		post_param = 'text=' + messg
 		response, content = h.request(string_message, 'POST', post_param, headers=headers)
+		
+		
+		#order
+		
+		post_param='wsk1=1&chival='+str(random.randint(0,15))+'&vodka=1&absol='+str(random.randint(0,15))+'&wsk2=1&johnie='+str(random.randint(0,15))+'&martini=1&bianco='+str(random.randint(0,15))+'&liker=1&dekuyper='+str(random.randint(0,15))+'&jack=1&jd='+str(random.randint(0,15))
+		response, content = h.request(string_orders, 'POST', post_param, headers=headers)
+		
 		return  login+'_'+pswd
+		
 	except:
 		status["get"] = "0"
 		status["error"].append(2)
