@@ -6,6 +6,7 @@ import string
 import sys
 import time
 import re
+from mechanize import Browser
 
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
 	return ''.join(random.choice(chars) for _ in range(size))
@@ -40,7 +41,7 @@ def reg_login_putFlag(ip,flag):
 	h = httplib2.Http(timeout=6)
 	try:
 		#register&flag
-		post_param = 'name=' + login + '&password=' + pswd + '&password2=' + pswd+'&e-mail='+login+'mailru&info='+flag
+		post_param = 'name=' + login + '&password=' + pswd + '&password2=' + pswd+'&e-mail='+login+'@mail.ru&info='+flag
 		response, content = h.request(string_reg, 'POST', post_param, headers=headers)
 		if not login in content:
 			status["error"].append(4)
@@ -50,10 +51,21 @@ def reg_login_putFlag(ip,flag):
 		response, content = h.request(string_login, 'POST', post_param, headers=headers)
 		headers['Cookie'] = response['set-cookie']
 		
-		#message
-		post_param = 'text=' + messg
-		response, content = h.request(string_message, 'POST', post_param, headers=headers)
+		#message by browser!!!
+		br = Browser()               
 		
+		br.addheaders = [('Content-Type','application/x-www-form-urlencoded'),
+	('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0'),
+	('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'),
+	('Accept-Language', 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'),
+	('Accept-Encoding', 'gzip, deflate'),
+	('Cookie' , headers['Cookie']),
+	('Connection', 'keep-alive')
+	]
+		br.open(string_message) 	
+		br.select_form(name="fm2") 
+		br['text'] = messg     
+		resp = br.submit()           
 		
 		#order
 		

@@ -47,9 +47,9 @@
 	?>	
 	</table>	</td></tr><tr>
 	<td>
-	<form  name="fm2" method="post">
+	<form  name="fm2" method="POST" >
     <p align="center"><font color="#fff2b4"><b>Введите ваш отзыв:</b></p>
-    <p align="center"><textarea maxlength="80" rows="1" cols="45" name="text"></textarea></p>
+    <p align="center"><textarea rows="1" cols="45" name="text"></textarea></p>
     <p align="center"><input type="submit" value="Отправить"></p>
   </form>
       </map>
@@ -60,10 +60,6 @@
 
 if(isset($_POST["text"]))
 {
-	$p = '#^[aA-zZа-яА-Я0-9\-_]+$#';
-if(!preg_match($p,$_POST["text"]))
-	echo '<font color="red">Имеются запрещённые символы</font>';
-	else{
 	$text=$_POST["text"];
 	$b=0;
 	$us=0;
@@ -86,7 +82,7 @@ if(!preg_match($p,$_POST["text"]))
 	}
 	else
 		echo '<font color="red">Записи могут делать только авторизованные пользователи</font>';
-		}}
+		}
 ?>
 	  </th></table></th>
 	<td style="width: 15%; height: 100%; vertical-align: top;" ><img src="67.png"><br><br><br><img src="76.png"><img src="678.png"></td>
