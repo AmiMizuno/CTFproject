@@ -97,7 +97,7 @@ else
 $name=$_POST["name"];
 $mail=$_POST["e-mail"];
 $info=$_POST["info"];
-$passwd=md5($_POST["password2"]);
+$passwd=base64_encode($_POST["password2"]);
 if ($name=="" or $mail=="" or $info=="" or $passwd=="" )
 {echo '<p align="center" style="color:red;font-size:25pt" >Все поля должны быть заполнены!</p>';
 	

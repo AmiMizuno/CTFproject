@@ -40,7 +40,7 @@ mysql_select_db('ctfbd') or die('Не удалось выбрать базу д�
 if(count($_POST)>0)
 {
 $name=$_POST["name"];
-$passwd=md5($_POST["password"]);
+$passwd=base64_encode($_POST["password"]);
 $p = '#^[aA-zZ0-9\-_]+$#';
 if(!preg_match($p,$_POST["name"]) or !preg_match($p,$_POST["password"]))
 	echo '<font color="red">Имеются запрещённые символы</font>';

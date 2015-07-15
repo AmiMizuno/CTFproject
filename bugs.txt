@@ -1,0 +1,3 @@
+1. Cookie generatoin
+2. profile.php: Sql injection by Cookie
+3. logout.php: Sql injection by Cookie

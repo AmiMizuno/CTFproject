@@ -46,10 +46,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
     {
 		$i+=1;
 		$login=$line['login'];$email=$line['email'];$info=$line['info'];
-	}
-if($i>0)
-{
-$a=sprintf('
+		$a=sprintf('
 			<tr><td><img src="br.png" alt="mikky"></td>
 			<td>
 			<p><center><font color="#fff2b4"><h3>Профиль</h3>
@@ -71,6 +68,10 @@ $a=sprintf('
 
    ',$login,$email,$info);
 echo $a;
+	}
+if($i>0)
+{
+
 
 $query = "SELECT * FROM purchases WHERE userid='$us'";
 $result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
